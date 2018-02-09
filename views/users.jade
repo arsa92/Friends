@@ -1,0 +1,26 @@
+extends layout
+
+block content
+  h1= title
+  table
+    tr
+      th= "id"
+      th= "first name"
+      th= "surname"
+      th= "age"
+      th= "gender"
+      th= "friends"
+      th= "actions"
+    for user in users
+      tr
+        td= user.id
+        td= user.firstName
+        td= user.surname
+        td= user.age
+        td= user.gender
+        td= user.friends
+        td
+          button(onclick="location.href='/users/" + user.id + "/friends'") friends 
+          button(onclick="location.href='/users/" + user.id + "/friends_of_friends'") friends of friends 
+          button(onclick="location.href='/users/" + user.id + "/suggested_friends'") suggested friends 
+    
